@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
@@ -10,26 +11,26 @@ namespace CodewarsCSharpSolutions
     {
         static void Main(string[] args)
         {
-            int[] array = { 8, 9, 3, 4, 1, 7, 7, 11, 99, 2, 20, 33, 15};
+            int[] array = { -4, 0, 14, -8, 4, -2, 14, 3, 15, -5, 8, -1, 15, 0, -15, -1, -3, -8, 1, -1 };
             String students = "Tadashi Takahiro Takao Takashi Takayuki Takehiko Takeo Takeshi Takeshi";
 
-            int[] newArrayASC = InsertionSortASC(array);
-            int[] newArrayDESC = InsertionSortDESC(array);
+            //int[] newArrayASC = InsertionSortASC(array);
+            //int[] newArrayDESC = InsertionSortDESC(array);
+            int a = MostFrequentItemCount(array);
 
-            string a = "baba";
-            string b = "aaaa";
+            Console.WriteLine("встречается раз: " + a);
 
             //foreach (int i in newArrayASC)
             //{
             //    Console.WriteLine(i);
             //}
 
-            String[] correctList = LineupStudents(students);
+            //String[] correctList = LineupStudents(students);
 
-            foreach (string i in correctList)
-            {
-                Console.WriteLine(i + " Длина этой строки: " + i.Length.ToString());
-            }
+            //foreach (string i in correctList)
+            //{
+            //    Console.WriteLine(i + " Длина этой строки: " + i.Length.ToString());
+            //}
 
         }
         // СОРТИРОВКА ВСТАВКАМИ
@@ -148,22 +149,35 @@ namespace CodewarsCSharpSolutions
         }
 
         //__________________
+
+//        Description:
+//Complete the function to find the count of the most frequent item of an array.You can assume that input is an array of integers.For an empty array return 0
+
+
+//Example
+//input array: [3, -1, -1, -1, 2, 3, -1, 3, -1, 2, 4, 9, 3]
+//ouptut: 5 
+//The most frequent number in the array is -1 and it occurs 5 times.
         public static int MostFrequentItemCount(int[] collection)
         {
-            int key = 0;
-            int counter = 0;
-            int maxCount = 0;
-            int mostFrequentItem = 0;
 
-            for (int i = 0; i < collection.Length; i++)
+            Dictionary<int, int> items = new Dictionary<int, int>(collection.Length);
+            int maxCount = 0;
+          
+
+            foreach (int i in collection)
             {
-                if(key != collection[i])
+                int count = items.GetValueOrDefault(i, 0);
+                count++;
+                if(count > maxCount)
                 {
-                    key = collection[i];
-                    counter = 0;
+                    maxCount = count;
                 }
+                items[i] = count;
             }
-            return 0;
+
+            return maxCount;
+
         }
 
     }
