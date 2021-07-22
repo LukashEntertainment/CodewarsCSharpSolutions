@@ -13,7 +13,10 @@ namespace CodewarsCSharpSolutions
         {
             int[] array = { -4, 0, 14, -8, 4, -2, 14, 3, 15, -5, 8, -1, 15, 0, -15, -1, -3, -8, 1, -1 };
             String students = "Tadashi Takahiro Takao Takashi Takayuki Takehiko Takeo Takeshi Takeshi";
-            Console.WriteLine(IQ.Test("2 4 7 8 10"));
+            //Console.WriteLine(IQ.Test("2 4 7 8 10"));
+
+            Console.WriteLine(CountSmileys.CountSmileysMethod(new string[] { ":D", ":~)", ";~D", ":)" }));
+
             //int[] newArrayASC = InsertionSortASC(array);
             //int[] newArrayDESC = InsertionSortDESC(array);
             int a = MostFrequentItemCount(array);
