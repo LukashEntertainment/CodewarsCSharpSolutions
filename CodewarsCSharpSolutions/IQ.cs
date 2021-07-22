@@ -19,7 +19,7 @@ public class IQ
 
         if (oddNums.ToArray().Length > evenNums.ToArray().Length)
         {
-            return numberIndex = arrayInt.Select((n, i) => new { num = n, index = i }).First(n => n.num % 2 == 0).index + 1;
+            return arrayInt.Select((n, i) => new { num = n, index = i }).First(n => n.num % 2 == 0).index + 1;
         }
 
         if (oddNums.ToArray().Length < evenNums.ToArray().Length)
