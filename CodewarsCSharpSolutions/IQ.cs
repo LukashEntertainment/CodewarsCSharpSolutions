@@ -11,8 +11,6 @@ public class IQ
 
     public static int Test(string numbers)
     {
-        var numberIndex = 0;
-
 
         int[] arrayInt = numbers.Split(' ').Select(int.Parse).ToArray();
 
@@ -29,6 +27,6 @@ public class IQ
             return arrayInt.Select((n, i) => new { num = n, index = i }).First(n => n.num % 2 != 0).index + 1;
         }
 
-        return numberIndex;
+        return 0;
     }
 }
